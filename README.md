@@ -1,4 +1,4 @@
- 在docker使用wine安装微信
+# 在docker使用wine安装微信
 
 ## 安装x11
 宿主机执行：
