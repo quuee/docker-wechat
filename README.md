@@ -2,8 +2,10 @@
 
 ## 安装x11
 宿主机执行：
+```sh
 	sudo apt install x11-xserver-utils
 	xhost + 
+```
 xhost + 允许所有用户可访问xserver(临时的，每次重启要执行)
 
 ## 构建一个带有wine的ubuntu镜像
