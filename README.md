@@ -3,8 +3,8 @@
 ## 安装x11
 宿主机执行：
 ```sh
-	sudo apt install x11-xserver-utils
-	xhost + 
+sudo apt install x11-xserver-utils
+xhost + 
 ```
 xhost + 允许所有用户可访问xserver(临时的，每次重启要执行)
 
@@ -34,7 +34,7 @@ xhost + 允许所有用户可访问xserver(临时的，每次重启要执行)
 	export QT_IM_MODULE="fcitx"
 
 	source /etc/profile
-	重新启动微信，中文可以输入了
+	# 重新启动微信，中文可以输入了
 
 ## 其他
 	#启动容器
