@@ -34,8 +34,11 @@ xhost + 允许所有用户可访问xserver(临时的，每次重启要执行)
 	export QT_IM_MODULE="fcitx"
 
 	source /etc/profile
-	# 重新启动微信，中文可以输入了
+	# 重新启动微信，中文可以输入了。
 
+
+## TODO
+	每次都要重新启动容器 都要source /etc/profile 再重新登陆才能输入中文
 ## 其他
 	#启动容器
 	docker start 容器名
