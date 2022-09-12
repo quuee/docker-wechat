@@ -1,0 +1,27 @@
+FROM ubuntu:22.04
+USER root
+WORKDIR /root/
+
+RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
+ADD ./sources.list /etc/apt/sources.list
+RUN apt-get update && apt-get install -y wget wine winetricks vim
+
+ENV LANG zh_CN.UTF-8
+ENV LC-ALL zh_CN.utf8
+ENV TZ=Asia/Shanghai
+
+RUN dpkg --add-architecture i386 && apt-get update && apt-get install wine32 -y
+
+# ADD ./Fonts /root/.wine/drive_c/windows/Fonts
+ADD ./Fonts /usr/share/fonts
+RUN fc-cache
+
+ADD InstMsiW.exe /root/.cache/winetricks/msls31/
+ADD W2KSP4_EN.EXE /root/.cache/winetricks/win2ksp4/
+RUN winetricks riched20
+
+ADD my-ibus.sh /etc/profile.d/
+#下载微信 没用其他人都是用安装后的微信
+RUN wget https://dldir1.qq.com/weixin/Windows/WeChatSetup.exe --no-check-certificate
+CMD ["wine","/root/WeChat.exe"] 
+ENTRYPOINT ["wine","/root/.wine/driver_c/'Program Files (x86)/Tencent/WeChat/WeChat.exe'"]
