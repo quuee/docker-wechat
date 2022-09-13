@@ -5,7 +5,7 @@ WORKDIR /root/
 RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
 ADD ./sources.list /etc/apt/sources.list
 RUN dpkg --add-architecture i386 && apt-get update -y 
-RUN apt-get install -y wine32 wget vim cabextract winetricks 
+RUN apt-get install -y wine32 wget vim cabextract winetricks winbind alsa-base 
 
 ENV LANG zh_CN.UTF-8
 ENV LANGUAGE zh_CN.UTF-8
