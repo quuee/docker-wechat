@@ -38,7 +38,10 @@ xhost + 允许所有用户可访问xserver(临时的，每次重启要执行)
 
 
 ## TODO
-	每次都要重新启动容器 都要source /etc/profile 再重新登陆才能输入中文
+	每次重新启动容器 都要source /etc/profile 再重新登陆才能输入中文
+	挂载 卷
+	没有声音
+	不能发送图片
 ## 其他
 	#启动容器
 	docker start 容器名
