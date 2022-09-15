@@ -37,13 +37,14 @@ xhost + 允许所有用户可访问xserver(临时的，每次重启要执行)
 ## 输入框无法输入问题，最好在微信安装后执行
 	winetricks riched20
 ## 中文无法输入
+```shell
 vim /etc/profile
 export XMODIFIERS=@im=fcitx
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 
 source /etc/profile
-
+```
 ## TODO
 	没有声音
 	不能发送图片
