@@ -80,7 +80,6 @@ source /etc/profile
 
 
 ## TODO
-	没有声音
 	不能截图
 	不能打开订阅号
 
