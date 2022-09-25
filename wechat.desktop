@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=WeChat
+GenericName=WeChat Tencent
+Comment=WeChat
+Exec=/home/cx/Documents/Projects/wechatRunInDockerWithWine/wechat-run.sh
+Icon=/home/cx/Documents/Projects/wechatRunInDockerWithWine/icon64_appwx_logo.png
+Terminal=false
+Type=Application
+Categories=Application;

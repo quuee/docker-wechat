@@ -21,7 +21,8 @@ xhost + 允许所有用户可访问xserver(临时的，每次重启要执行)
 	--device=/dev/dri \
 	--gpus all \
 	--net=host \
-	-v /home/cx/dockerVol/wechat:/root \
+	--ipc=host \
+	-v $PWD/dockerVol/wechat:/root \
 	-e DISPLAY=unix$DISPLAY \
 	-e NVIDIA_DRIVER_CAPABILITIES=all \
 	-e NVIDIA_VISIBLE_DEVICES=0 \
@@ -59,12 +60,7 @@ source /etc/profile
 	需要将图片拷贝到docker容器中
 	或者挂载卷
 
-## TODO
-	没有声音
-	不能截图
-	不能打开订阅号
-
-## 其他
+## 启动相关命令
 	#启动容器
 	docker start 容器名
 	#进入容器
@@ -75,6 +71,19 @@ source /etc/profile
 	docker cp 文件 [容器名或id]:/root/文件
 	#更改挂载的文件夹权限
 	sudo chmod 666 文件夹
+## 创建图标启动
+	wechat.desktop
+	Exec=/自己的路径/wechatRunInDockerWithWine/wechat-run.sh
+	Icon=/自己的路径/wechatRunInDockerWithWine/icon64_appwx_logo.png
+
+	sudo mv wechat.desktop /usr/share/aplications
+
+
+## TODO
+	没有声音
+	不能截图
+	不能打开订阅号
+
 
 ## gpu报错，需要在主机上添加以下包 nvidia-container-runtime或者nvidia-container-toolkit
 	以下是nvidia-container-toolkit安装
@@ -91,7 +100,7 @@ source /etc/profile
 	sudo apt-get update && sudo apt-get install nvidia-container-runtime
 
 
-	X Error of failed request:  BadValue
+	其他
 	apt install libnvidia-gl-515:i386
 
 
