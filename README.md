@@ -25,7 +25,7 @@ xhost + 允许所有用户可访问xserver(临时的，每次重启要执行)
 	-v $PWD/dockerVol/wechat:/root \
 	-e DISPLAY=unix$DISPLAY \
 	-e NVIDIA_DRIVER_CAPABILITIES=all \
-	-e NVIDIA_VISIBLE_DEVICES=0 \
+	-e NVIDIA_VISIBLE_DEVICES=all \
 	-e GDK_SCALE \
 	-e GDK_DPI_SCALE \
 	-e GID=${GID} \
@@ -55,6 +55,7 @@ export QT_IM_MODULE=fcitx
 source /etc/profile
 ```
 
+
 ## 不能发送图片
 	apt install libjpeg62:i386
 	需要将图片拷贝到docker容器中
@@ -71,6 +72,7 @@ source /etc/profile
 	docker cp 文件 [容器名或id]:/root/文件
 	#更改挂载的文件夹权限
 	sudo chmod 666 文件夹
+	#如果有时候中文无法输入,重启容器后先执行source /etc/profile ,再启动微信
 ## 创建图标启动
 	wechat.desktop
 	Exec=/自己的路径/wechatRunInDockerWithWine/wechat-run.sh
@@ -81,7 +83,7 @@ source /etc/profile
 
 ## TODO
 	不能截图
-	不能打开订阅号
+	不能打开订阅号小程序
 
 
 ## gpu报错，需要在主机上添加以下包 nvidia-container-runtime或者nvidia-container-toolkit
