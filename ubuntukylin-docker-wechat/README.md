@@ -25,6 +25,7 @@ xhost + 允许所有用户可访问xserver(临时的，每次重启要执行)
 -e VIDEO_GID="$(getent group video | cut -d: -f3)" # 
 -e GID=${GID} -e UID=${UID} # 可选 默认1000 主机当前用户 gid 解决挂载目录访问权限问题
 -e XMODIFIERS=@im=ibus -e QT_IM_MODULE=ibus -e GTK_IM_MODULE=ibus # 指定输入法
+-v /etc/localtime:/etc/localtime:ro # 时间同步 
 ```
 
 ### run docker wechat
@@ -37,6 +38,7 @@ docker run -it \
   -e DISPLAY=$DISPLAY \
   -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
   -v $HOME/.config/weixin:/root/.config/weixin \
+  -v /etc/localtime:/etc/localtime:ro \
   -e XMODIFIERS=@im=ibus \
   -e QT_IM_MODULE=ibus \
   -e GTK_IM_MODULE=ibus \
