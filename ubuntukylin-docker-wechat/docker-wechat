@@ -28,5 +28,6 @@ RUN apt-get clean
 ENV LC_ALL zh_CN.UTF-8
 ENV LANG zh_CN.UTF-8
 ENV LANGUAGE en_US.UTF-8
+ENV TimeZone=Asia/Shanghai
 
 CMD ["weixin", "--no-sandbox"]

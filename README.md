@@ -1,4 +1,4 @@
-## 1、使用wine微信
+## 1、在docker内使用已用wine封装的微信
 如麒麟 deepin
 
-## 2、下载wine自己安装微信
+## 2、在docker内下载wine再安装微信
