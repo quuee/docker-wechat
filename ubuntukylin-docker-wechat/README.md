@@ -5,7 +5,7 @@ docker build -f docker-wechat -f docker-wechat:v1.0 .
 ```
 
 ### 主机执行：
-x11-xserver-utils，让docker运行的系统拥有gui的大概有两个，一个是X11server 、一个是novnc。
+x11-xserver-utils。
 ```shell
 sudo apt install x11-xserver-utils
 xhost +
@@ -49,4 +49,14 @@ docker run -it \
 关闭？
 ```shell
 xhost -
+```
+
+### wayland
+https://blog.csdn.net/sinat_21946723/article/details/127436992
+```shell
+docker run -e XDG_RUNTIME_DIR=/tmp \
+           -e WAYLAND_DISPLAY=$WAYLAND_DISPLAY \
+           -v $XDG_RUNTIME_DIR/$WAYLAND_DISPLAY:/tmp/$WAYLAND_DISPLAY  \
+           --user=$(id -u):$(id -g) \
+           imagename waylandapplication
 ```
